@@ -22,7 +22,10 @@ from company import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('music/', include('music.urls')),
+    #path('stocks/', include('company.urls')),
+
     path('stocks/', views.StockList.as_view()),
+    path('company/', include('company.urls')),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
