@@ -15,7 +15,7 @@ class LearningCentreSubCategoriesSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = LearningCentreSubCategories
-        fields = ('category', 'subcategory_id', 'subcategory_name', 'date_added', 'learning_centre_subcategories_questions_answers')
+        fields = ('category_id', 'subcategory_id', 'subcategory_name', 'date_added', 'learning_centre_subcategories_questions_answers')
 
 
 class LearningCentreCategoriesSerializer(serializers.ModelSerializer):

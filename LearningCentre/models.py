@@ -12,7 +12,7 @@ class LearningCentreCategories(models.Model):
 
 
 class LearningCentreSubCategories(models.Model):
-    category = models.ForeignKey(LearningCentreCategories, on_delete=models.CASCADE)
+    category_id = models.ForeignKey(LearningCentreCategories, on_delete=models.CASCADE)
     subcategory_id = models.AutoField(primary_key=True)
     subcategory_name = models.CharField(max_length=100)
     date_added = models.DateTimeField(auto_now_add=True)
@@ -22,8 +22,8 @@ class LearningCentreSubCategories(models.Model):
 
 
 class LearningCentreSubCategoriesQuestionAnswer(models.Model):
-    category = models.ForeignKey(LearningCentreCategories, on_delete=models.CASCADE)
-    subcategory = models.ForeignKey(LearningCentreSubCategories, on_delete=models.CASCADE)
+    category_id = models.ForeignKey(LearningCentreCategories, on_delete=models.CASCADE)
+    subcategory_id = models.ForeignKey(LearningCentreSubCategories, on_delete=models.CASCADE)
     question_id = models.AutoField(primary_key=True)
     question = models.CharField(max_length=1000)
     answer = models.CharField(max_length=10000)
