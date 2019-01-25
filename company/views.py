@@ -4,8 +4,8 @@ from django.shortcuts import get_object_or_404, get_list_or_404
 from rest_framework.views import APIView
 from rest_framework.response import Response
 from rest_framework import status
-from .models import Stock
-from .serializers import StockSerializer
+from .models import Stock, StockDetailToday
+from .serializers import StockSerializer, StockDetailTodaySerializer
 
 
 # Create your views here.
@@ -13,6 +13,7 @@ class StockList(APIView):
 
     def get(self, request):
         stock = get_list_or_404(Stock)
+        stock = Stock.objects.filter()
         serializer = StockSerializer(stock, many=True)
         return Response(serializer.data)
 
@@ -36,7 +37,10 @@ class StockDetails(APIView):
 
     def get(self, request, pk):
         snippet = self.get_object(pk)
+        #selected_song = snippet.stockdetailtoday_set.all()
         serializer = StockSerializer(snippet)
+        # snippett = get_list_or_404(StockDetailToday)
+        #serializer = StockDetailTodaySerializer(snippet)
         return Response(serializer.data)
 
     def put(self, request, pk):

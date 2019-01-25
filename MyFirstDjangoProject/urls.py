@@ -18,14 +18,16 @@ from django.urls import path
 from django.conf.urls import url, include
 from rest_framework.urlpatterns import format_suffix_patterns
 from company import views
+from LearningCentre import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('music/', include('music.urls')),
     #path('stocks/', include('company.urls')),
 
-    path('stocks/', views.StockList.as_view()),
+    #path('stocks/', views.StockList.as_view()),
     path('company/', include('company.urls')),
+    path('learningcentre/', views.LearningCentreList.as_view()),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)
