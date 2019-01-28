@@ -27,7 +27,8 @@ urlpatterns = [
 
     #path('stocks/', views.StockList.as_view()),
     path('company/', include('company.urls')),
-    path('learningcentre/', views.LearningCentreList.as_view()),
+    path('learning-centre/', views.LearningCentreList.as_view()),
+    path('learning-centre/', include('LearningCentre.urls')),
 ]
 
 urlpatterns = format_suffix_patterns(urlpatterns)

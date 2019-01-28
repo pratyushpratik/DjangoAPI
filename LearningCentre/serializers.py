@@ -18,6 +18,15 @@ class LearningCentreSubCategoriesSerializer(serializers.ModelSerializer):
         fields = ('category_id', 'subcategory_id', 'subcategory_name', 'date_added', 'learning_centre_subcategories_questions_answers')
 
 
+class LearningCentreSubCategoriesQuestionsAnswersWithSubcategoryIDSerializer(serializers.ModelSerializer):
+
+    learning_centre_subcategories_questions_answers = LearningCentreSubCategoriesQuestionAnswerSerializer(source='learningcentresubcategoriesquestionanswer_set', many=True)
+
+    class Meta:
+        model = LearningCentreSubCategories
+        fields = ('subcategory_id', 'learning_centre_subcategories_questions_answers')
+
+
 class LearningCentreCategoriesSerializer(serializers.ModelSerializer):
 
     learning_centre_subcategories = LearningCentreSubCategoriesSerializer(source='learningcentresubcategories_set', many=True)
