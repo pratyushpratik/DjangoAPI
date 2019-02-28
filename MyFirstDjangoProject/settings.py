@@ -25,7 +25,7 @@ SECRET_KEY = '!du&)=xu6y4_#u!$g%=uk1m534f&s_(=f^z9gx3dy0@ibo6@gh'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -41,7 +41,8 @@ INSTALLED_APPS = [
     'rest_framework',
     'rest_framework_swagger',
     'company.apps.CompanyConfig',
-    'LearningCentre.apps.LearningcentreConfig'
+    'LearningCentre.apps.LearningcentreConfig',
+    'froala_editor'
 ]
 
 MIDDLEWARE = [

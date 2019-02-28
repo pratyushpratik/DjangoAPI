@@ -1,6 +1,6 @@
 from django.db import models
 import datetime
-
+from froala_editor.fields import FroalaField
 
 class LearningCentreCategories(models.Model):
     category_id = models.AutoField(primary_key=True)
@@ -25,8 +25,8 @@ class LearningCentreSubCategoriesQuestionAnswer(models.Model):
     category_id = models.ForeignKey(LearningCentreCategories, on_delete=models.CASCADE)
     subcategory_id = models.ForeignKey(LearningCentreSubCategories, on_delete=models.CASCADE)
     question_id = models.AutoField(primary_key=True)
-    question = models.CharField(max_length=1000)
-    answer = models.CharField(max_length=10000)
+    question = FroalaField()
+    answer = FroalaField()
     date_added = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
