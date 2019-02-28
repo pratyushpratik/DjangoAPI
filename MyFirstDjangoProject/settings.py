@@ -43,7 +43,9 @@ INSTALLED_APPS = [
     'rest_framework_swagger',
     'company.apps.CompanyConfig',
     'LearningCentre.apps.LearningcentreConfig',
-    'froala_editor'
+    'corsheaders',
+    'froala_editor',
+    'tinymce',
 ]
 
 MIDDLEWARE = [
@@ -54,6 +56,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'MyFirstDjangoProject.urls'
@@ -125,5 +129,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+CORS_ORIGIN_ALLOW_ALL = True
 
 django_heroku.settings(locals())
